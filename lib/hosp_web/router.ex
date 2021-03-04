@@ -11,6 +11,9 @@ defmodule HospWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+
+    resources "/staff/:id", StaffController
+    resources "/patients/:id", PatientController, except: [:delete]
   end
 
   scope "/", HospWeb do

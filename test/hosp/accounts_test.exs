@@ -67,4 +67,71 @@ defmodule Hosp.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_patient(patient)
     end
   end
+
+  describe "staffs" do
+    alias Hosp.Accounts.Staff
+
+    @valid_attrs %{department: "some department", gender: "some gender", name: "some name", position: "some position", registration: 42}
+    @update_attrs %{department: "some updated department", gender: "some updated gender", name: "some updated name", position: "some updated position", registration: 43}
+    @invalid_attrs %{department: nil, gender: nil, name: nil, position: nil, registration: nil}
+
+    def staff_fixture(attrs \\ %{}) do
+      {:ok, staff} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_staff()
+
+      staff
+    end
+
+    test "list_staffs/0 returns all staffs" do
+      staff = staff_fixture()
+      assert Accounts.list_staffs() == [staff]
+    end
+
+    test "get_staff!/1 returns the staff with given id" do
+      staff = staff_fixture()
+      assert Accounts.get_staff!(staff.id) == staff
+    end
+
+    test "create_staff/1 with valid data creates a staff" do
+      assert {:ok, %Staff{} = staff} = Accounts.create_staff(@valid_attrs)
+      assert staff.department == "some department"
+      assert staff.gender == "some gender"
+      assert staff.name == "some name"
+      assert staff.position == "some position"
+      assert staff.registration == 42
+    end
+
+    test "create_staff/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_staff(@invalid_attrs)
+    end
+
+    test "update_staff/2 with valid data updates the staff" do
+      staff = staff_fixture()
+      assert {:ok, %Staff{} = staff} = Accounts.update_staff(staff, @update_attrs)
+      assert staff.department == "some updated department"
+      assert staff.gender == "some updated gender"
+      assert staff.name == "some updated name"
+      assert staff.position == "some updated position"
+      assert staff.registration == 43
+    end
+
+    test "update_staff/2 with invalid data returns error changeset" do
+      staff = staff_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_staff(staff, @invalid_attrs)
+      assert staff == Accounts.get_staff!(staff.id)
+    end
+
+    test "delete_staff/1 deletes the staff" do
+      staff = staff_fixture()
+      assert {:ok, %Staff{}} = Accounts.delete_staff(staff)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_staff!(staff.id) end
+    end
+
+    test "change_staff/1 returns a staff changeset" do
+      staff = staff_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_staff(staff)
+    end
+  end
 end

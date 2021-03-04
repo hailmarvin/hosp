@@ -20,7 +20,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Tasks
 - [x] Patient Database
-- [ ] Staff Database
+- [x] Staff Database
 - [ ] Appointment Functionality
 - [ ] Prescription Functionality
 - [ ] Discharge Summary

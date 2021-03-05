@@ -20,7 +20,8 @@ defmodule Hosp.MixProject do
   def application do
     [
       mod: {Hosp.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
+      applications: [:comeonin]
     ]
   end
 
@@ -45,7 +46,9 @@ defmodule Hosp.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:cowboy, "< 2.8.0", override: true}
+      {:cowboy, "< 2.8.0", override: true},
+      {:guardian, "~> 0.14"},
+      {:comeonin, "~> 3.0"}
     ]
   end
 

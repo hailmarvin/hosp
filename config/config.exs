@@ -29,3 +29,14 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+# Configures Guardian
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "Hosp",
+  ttl: { 30, :days },
+  allowed_drift: 2000,
+  verify_issuer: true, # optional
+  secret_key: "CIjVqmH/ES+bRy9AU1pO+xVCJLzGucT3CoSQJP7bP/YVyy23OYJqDYYTo9RKhAZ6", # generated through mix gen.secret
+  serializer: Hosp.GuardianSerializer

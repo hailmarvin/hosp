@@ -1,7 +1,7 @@
 defmodule HospWeb.RegistrationView do
     use HospWeb, :view
   
-    def render("success.json", %{user: user}) do
+    def render("success.json", %{patient: patient}) do
       %{
         status: :ok,
         message: """

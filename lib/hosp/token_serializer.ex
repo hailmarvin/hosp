@@ -4,7 +4,7 @@ defmodule Hosp.GuardianSerializer do
     alias Hosp.Repo
     alias Hosp.Accounts
   
-    def for_token(user = %Accounts.Patient{}), do: { :ok, "Patient:#{patient.id}" }
+    def for_token(patient = %Accounts.Patient{}), do: { :ok, "Patient:#{patient.id}" }
     # def for_token(user = %Accounts.Staff{}), do: { :ok, "Staff:#{staff.id}" }
     def for_token(_), do: { :error, "Unknown resource type" }
   

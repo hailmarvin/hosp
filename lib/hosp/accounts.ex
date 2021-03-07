@@ -102,21 +102,6 @@ defmodule Hosp.Accounts do
     Patient.changeset(patient, attrs)
   end
 
-  def sign_up(conn, %{"patient" => patient_params}) do
-    changeset = Patient.registration_changeset(%Patient{}, patient_params)
-
-    case Repo.insert(changeset) do
-      {:ok, patient} ->
-        conn
-        |> put_status(:created)
-        |> put_resp_header("location", patient_path(conn, :show, user))
-        |> render("success.json", patient: patient)
-      {:error, changeset} ->
-        conn
-        |> put_status(:unprocessable_entity)
-        |> render(HospWeb.ChangesetView, "error.json", changeset: changeset)
-    end
-  end
 
   def find_and_confirm_password(email, password) do
     case Repo.get_by(Patient, email: email) do

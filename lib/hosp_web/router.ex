@@ -1,7 +1,5 @@
 defmodule HospWeb.Router do
   use HospWeb, :router
-  alias HospWeb.PatientController
-  alias HospWeb.StaffController
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -21,7 +19,7 @@ defmodule HospWeb.Router do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
-  scope "/api/v1", MyAppName do
+  scope "/api/v1", HospWeb do
     pipe_through :api
 
     post "/sign_up", RegistrationController, :sign_up

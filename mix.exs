@@ -20,8 +20,7 @@ defmodule Hosp.MixProject do
   def application do
     [
       mod: {Hosp.Application, []},
-      extra_applications: [:logger, :runtime_tools],
-      applications: [:comeonin]
+      extra_applications: [:logger, :runtime_tools, :comeonin]
     ]
   end
 

@@ -1,4 +1,18 @@
-<mat-toolbar color="primary">
-    <span>Hosp</span>
+<mat-toolbar id="header">
+    <span class="logo">Hosp</span>
+    <span class="example-spacer"></span>
+    <span class="header-links">Home</span>
+    <span class="header-links">
+        Services
+        <mat-select class="sl-left">
+            <mat-option value="option1">Dental Clinics</mat-option>
+            <mat-option value="option2">Consultant Clinics</mat-option>
+            <mat-option value="option3">Maternal Clinic</mat-option>
+        </mat-select>
+    </span>
+    <span class="header-links">Department</span>
+    <span class="header-links">Careers</span>
+    <span class="example-spacer2"></span>
+    <span class="header-account">Sign in</span>
 </mat-toolbar>
 <router-outlet></router-outlet>

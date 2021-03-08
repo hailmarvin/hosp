@@ -1,0 +1,33 @@
+#header {
+    position: fixed;
+    background-color: #3aafa9;
+}
+
+.example-spacer {
+    flex: 0.5 1 auto;
+}
+
+.example-spacer2 {
+    flex: 0.5 1 auto;
+}
+
+.header-links {
+    font-weight: 300;
+    font-size: medium;
+    margin: 0 20px;
+    color: #fff;
+}
+
+.header-account {
+    float: right;
+    font-size: medium;
+    font-weight: 400;
+    background-color: #172a25;
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 20px;
+}
+
+.sl-left {
+    margin-left: -31px;
+}

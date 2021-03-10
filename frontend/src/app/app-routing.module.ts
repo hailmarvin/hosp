@@ -12,7 +12,13 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
-  }
+  },
+  {
+    path: 'account',
+    data: { preload: false },
+    loadChildren: () =>
+      import('./account/account.module').then(m => m.AccountModule)
+  }  
 ];
 
 @NgModule({

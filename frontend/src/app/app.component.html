@@ -1,4 +1,4 @@
-<mat-toolbar id="header">
+<mat-toolbar class="header">
     <span class="logo">Hosp</span>
     <span class="example-spacer"></span>
     <span class="header-links">Home</span>
@@ -13,6 +13,6 @@
     <span class="header-links">Department</span>
     <span class="header-links">Careers</span>
     <span class="example-spacer2"></span>
-    <span class="header-account">Sign in</span>
+    <span class="header-account" (click)="account()">Account</span>
 </mat-toolbar>
 <router-outlet></router-outlet>

@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .header-fixed {
     position: fixed;
 }
@@ -20,6 +24,7 @@
     font-size: medium;
     margin: 0 20px;
     color: #fff;
+    cursor: pointer;
 }
 
 .header-account {
@@ -35,4 +40,17 @@
 
 .sl-left {
     margin-left: -31px;
+}
+
+.header-changed {
+    background-color: #172a25;
+    position: fixed;
+
+    .logo {
+        color: #3aafa9;
+    }
+
+    .header-account {
+        background-color: #3aafa9;
+    }
 }

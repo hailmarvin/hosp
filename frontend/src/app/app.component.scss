@@ -54,3 +54,49 @@
         background-color: #3aafa9;
     }
 }
+
+.side-content {
+    width: 100%;
+    min-height: 100vh;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: x mandatory;
+}
+
+.example-icon {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .header-links, .header-account {
+        display: none;
+    }
+
+    .example-spacer3 {
+        flex: 1 1 auto;
+    }
+
+    .example-icon {
+        display: block;
+        color: #fff;
+    }
+}
+
+.example-sidenav{
+    width: 300px;
+    background-color: #16161b;
+    position: fixed;
+    overflow: auto;
+}
+
+.icon-spacer {
+    color: white;
+    margin: 10px 20px 10px 20px;    
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+
+.hr-spacer {
+    margin: 0 20px 0 20px;  
+}

@@ -12,6 +12,10 @@ export class AppComponent {
 
   constructor(private route: Router) {}
 
+  togglePanel() {
+    this.panelOpenState = !this.panelOpenState
+  }
+
   @HostListener('window:scroll', ['$event'])
 
   onWindowScroll(e) {

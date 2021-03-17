@@ -13,7 +13,8 @@ import { MaterialModule } from '../material.module';
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-        { path: 'signin', component: SigninComponent }
+        { path: 'signin', component: SigninComponent },
+        { path: 'login', component: LoginComponent }
     ]),
     MaterialModule
   ]

@@ -5,6 +5,7 @@
 
 .logo {
     cursor: pointer;
+    font-size: larger;
 }
 
 .header-fixed {
@@ -21,7 +22,7 @@
 
 .header-links {
     font-weight: 300;
-    font-size: medium;
+    font-size: large;
     margin: 0 20px;
     color: #fff;
     cursor: pointer;
@@ -39,7 +40,8 @@
 }
 
 .sl-left {
-    margin-left: -31px;
+    margin-left: -45px;
+    margin-right: 20px;
 }
 
 .header-changed {

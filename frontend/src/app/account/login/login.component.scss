@@ -1,0 +1,79 @@
+.login-container {
+    width: 90%;
+    height: 95vh;
+    background-color: #16161b;
+    color: #2b7a78;
+    text-align: center;
+    margin: 0 5%;
+}
+
+.registration-header {
+    margin: 0;
+    font-weight: 400;
+    font-size: x-large;
+}
+
+label {
+    height: 100px;
+    text-align: left;
+    display: inline-block;
+    margin: 0 20px;
+    color: rgba($color: #ffffff, $alpha: 0.8);
+    font-weight: 300;
+
+    input {
+        display: block;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #3aafa9;
+        padding: 0 20px;
+    }
+}
+
+.long {
+    width: 55%;
+
+    input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    form {
+        display: block;
+    }
+
+    .login-container{
+        width: inherit;
+        margin: 0;
+    }
+
+    label {
+        margin: 0;
+
+        input {
+            width: 70%;
+            display: block;
+        }
+    }
+
+    .long{
+        width: 80%;
+        margin-right: 10%;
+    }
+}
+
+.button-container {
+    width: 56%;
+    margin: 20px 22%;
+    margin-bottom: 0;
+    text-align: left;
+
+    .clear {
+        margin-bottom: 25px;
+    }
+
+    .submit {
+        float: right;
+    }
+}

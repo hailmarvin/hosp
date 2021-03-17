@@ -7,11 +7,13 @@
           First Name:
           <input type="text" formControlName="firstName">
         </label>
+        <br class="mobile-break">
 
         <label class="names">
           Middle Name:
             <input type="text" formControlName="middleName">
           </label>
+          <br class="mobile-break">
       
         <label class="names">
           Last Name:
@@ -26,22 +28,23 @@
 
         <br>
 
-        <label>
+        <label class="phone">
             Phone:
-            <input type="number" formControlName="phone">
+            <input type="tel" formControlName="phone">
         </label>
 
-        <label>
+        <label class="dob">
             Date of Birth:
             <input type="date" formControlName="dob">
         </label>
 
-        <label>
-            Gender:
-            <input type="text" formControlName="gender">
-        </label>
-
-        <br>
+        <section class="example-section">
+          <label class="example-margin">Gender:</label>
+          <mat-radio-group>
+            <mat-radio-button class="example-margin" value="after">Male</mat-radio-button>
+            <mat-radio-button class="example-margin" value="before">Female</mat-radio-button>
+          </mat-radio-group>
+        </section>
 
         <label class="long">
             Password:
@@ -52,15 +55,15 @@
 
         <label class="long">
             Confirm Password:
-            <input type="password" formControlName="confirmpassword">
+            <input type="password" formControlName="confirmPassword">
         </label>
 
         <br>
 
         <div class="button-container">
-            <button mat-raised-button class="submit" color="primary">Submit</button>
+            <button mat-raised-button class="clear" color="accent">Clear</button>
 
-            <button mat-raised-button class="clear" color="primary">Clear</button>
+            <button mat-raised-button class="submit" color="accent">Submit</button>
         </div>
       </form>
       

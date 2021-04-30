@@ -20,4 +20,8 @@ defmodule ServerWeb.PatientView do
       email: patient.email,
       password_hash: patient.password_hash}
   end
+
+  def render("jwt.json", %{jwt: jwt}) do
+    %{jwt: jwt}
+  end
 end

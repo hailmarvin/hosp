@@ -1,15 +1,31 @@
 defmodule ServerWeb.Router do
   use ServerWeb, :router
+  alias Server.Guardian
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  pipeline :jwt_authenticated do
+    plug Guardian.AuthPipeline
+  end
+
   scope "/api/v1", ServerWeb do
     pipe_through :api
 
-    resources "/patients", PatientController, except: [:new, :edit]
-    resources "/staff", EmployeeController
+    post "/patients/sign_up", PatientController, :create
+    post "/patients/sign_in", PatientController, :sign_in
+    post "/staff/sign_up", EmployeeController, :create
+    post "/staff/sign_in", EmployeeController, :sign_in
+  end
+
+  scope "/api/v1", MyApiWeb do
+    pipe_through [:api, :jwt_authenticated]
+
+    get "/my_user", UserController, :show
+    
+    resources "/patients", PatientController, only: [:show, :update]
+    resources "/staff", EmployeeController, only: [:show, :update]
   end
 
   # Enables LiveDashboard only for development

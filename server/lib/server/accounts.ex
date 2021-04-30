@@ -1,4 +1,6 @@
 defmodule Server.Accounts do
+  alias Server.Guardian
+  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
   @moduledoc """
   The Accounts context.
   """
@@ -102,6 +104,38 @@ defmodule Server.Accounts do
     Patient.changeset(patient, attrs)
   end
 
+  def patient_token_sign_in(email, password) do
+    case patient_reg_auth(email, password) do
+      {:ok, patient} ->
+        Guardian.encode_and_sign(patient)
+      _ ->
+        {:error, :unauthorized}
+    end
+  end
+
+  defp patient_reg_auth(reg, password) when is_binary(reg) and is_binary(password) do
+    with {:ok, patient} <- get_patient_by_reg(reg),
+    do: verify_password(password, patient)
+  end
+
+  defp get_patient_by_reg(reg) when is_binary(reg) do
+    case Repo.get_by(%Patient{} = patient, reg: reg) do
+      nil ->
+        dummy_checkpw()
+        {:error, "Login error."}
+      patient ->
+        {:ok, patient}
+    end
+  end
+
+  defp verify_patient_password(password, %Patient{} = patient) when is_binary(password) do
+    if checkpw(password, patient.password_hash) do
+      {:ok, patient}
+    else
+      {:error, :invalid_password}
+    end
+  end
+
   alias Server.Accounts.Employee
 
   @doc """
@@ -194,7 +228,40 @@ defmodule Server.Accounts do
       %Ecto.Changeset{data: %Employee{}}
 
   """
+
   def change_employee(%Employee{} = employee, attrs \\ %{}) do
     Employee.changeset(employee, attrs)
+  end
+
+  def employee_token_sign_in(email, password) do
+    case employee_reg_auth(email, password) do
+      {:ok, employee} ->
+        Guardian.encode_and_sign(employee)
+      _ ->
+        {:error, :unauthorized}
+    end
+  end
+
+  defp employee_reg_auth(reg, password) when is_binary(reg) and is_binary(password) do
+    with {:ok, employee} <- get_employee_by_reg(reg),
+    do: verify_password(password, employee)
+  end
+
+  defp get_employee_by_reg(reg) when is_binary(reg) do
+    case Repo.get_by(%Employee{} = employee, reg: reg) do
+      nil ->
+        dummy_checkpw()
+        {:error, "Login error."}
+      employee ->
+        {:ok, employee}
+    end
+  end
+
+  defp verify_employee_password(password, %Employee{} = employee) when is_binary(password) do
+    if checkpw(password, employee.password_hash) do
+      {:ok, employee}
+    else
+      {:error, :invalid_password}
+    end
   end
 end

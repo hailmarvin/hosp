@@ -5,8 +5,11 @@ defmodule ServerWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", ServerWeb do
+  scope "/api/v1", ServerWeb do
     pipe_through :api
+
+    resources "/patients", PatientController, except: [:new, :edit]
+    resources "/staff", EmployeeController
   end
 
   # Enables LiveDashboard only for development

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import { Component } from '@angular/core';
-=======
-import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
->>>>>>> refs/remotes/origin/main
 
 @Component({
   selector: 'app-root',
@@ -12,30 +7,4 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'frontend';
-<<<<<<< HEAD
 }
-=======
-  panelOpenState = false;
-
-  constructor(private route: Router) {}
-
-  togglePanel() {
-    this.panelOpenState = !this.panelOpenState
-  }
-
-  @HostListener('window:scroll', ['$event'])
-
-  onWindowScroll(e) {
-    let element = document.querySelector('.header');
-    if (window.pageYOffset > 700) {
-      element.classList.add('header-changed');
-    } else {
-      element.classList.remove('header-changed');
-    }
-  }
-
-  account() {
-    this.route.navigateByUrl('account/signin')
-  }
-}
->>>>>>> refs/remotes/origin/main

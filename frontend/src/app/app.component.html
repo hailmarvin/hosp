@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -533,64 +532,3 @@
 
 
 <router-outlet></router-outlet>
-=======
-<mat-sidenav-container class="example-container">
-    <mat-drawer-container [hasBackdrop]="true">
-        <mat-drawer #drawer ope class="example-sidenav" mode="side">
-            <br>
-            <br>
-            <br>
-            <div class="container">
-                
-                <section> 
-                    <button class="icon-spacer" mat-icon-button [routerLink]="['/home']">
-                        Home
-                    </button>
-                    <hr class="hr-spacer">
-                    <button class="icon-spacer" mat-icon-button>
-                        Services
-                    </button>
-                    <hr class="hr-spacer">
-                    <button class="icon-spacer" mat-icon-button>
-                        Department
-                    </button>
-                    <hr class="hr-spacer">
-                    <button class="icon-spacer" mat-icon-button>
-                        Careers
-                    </button> 
-                    <hr class="hr-spacer">
-                    <button class="icon-spacer" mat-icon-button>
-                        Accounts
-                    </button> 
-                </section>
-            </div>
-            </mat-drawer>
-            <div class="side-content">
-                <mat-toolbar class="header">
-                    <span class="logo" [routerLink]="['/home']">Hosp</span>
-                    <span class="example-spacer"></span>
-                    <span class="header-links" [routerLink]="['/home']">Home</span>
-                    <span class="header-links">
-                        Services
-                        <mat-select class="sl-left">
-                            <mat-option value="option1">Dental Clinics</mat-option>
-                            <mat-option value="option2">Consultant Clinics</mat-option>
-                            <mat-option value="option3">Maternal Clinic</mat-option>
-                        </mat-select>
-                    </span>
-                    <span class="header-links">Department</span>
-                    <span class="header-links">Careers</span>
-                    <span class="example-spacer2"></span>
-                    <span class="header-account" (click)="account()">
-                        Account
-                    </span>
-                    <span class="example-spacer3"></span>
-                    <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
-                        <mat-icon>menu</mat-icon>
-                    </button>
-                </mat-toolbar>
-                <router-outlet></router-outlet>
-            </div> 
-    </mat-drawer-container>
-</mat-sidenav-container>       
->>>>>>> refs/remotes/origin/main

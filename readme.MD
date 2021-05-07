@@ -1,6 +1,10 @@
 # HOSP
 Hospital website project
 
+## Frameworks
+Phoenix Framework
+Angular
+
 ## Tasks
 - [ ] UI
 - [ ] State management

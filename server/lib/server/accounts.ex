@@ -115,16 +115,16 @@ defmodule Server.Accounts do
 
   defp patient_reg_auth(reg, password) when is_binary(reg) and is_binary(password) do
     with {:ok, patient} <- get_patient_by_reg(reg),
-    do: verify_password(password, patient)
+    do: verify_patient_password(password, patient)
   end
 
   defp get_patient_by_reg(reg) when is_binary(reg) do
-    case Repo.get_by(%Patient{} = patient, reg: reg) do
+    case Repo.get_by(%Patient{}, reg: reg) do
       nil ->
         dummy_checkpw()
         {:error, "Login error."}
-      patient ->
-        {:ok, patient}
+      %Patient{} ->
+        {:ok, %Patient{}}
     end
   end
 
@@ -244,16 +244,16 @@ defmodule Server.Accounts do
 
   defp employee_reg_auth(reg, password) when is_binary(reg) and is_binary(password) do
     with {:ok, employee} <- get_employee_by_reg(reg),
-    do: verify_password(password, employee)
+    do: verify_employee_password(password, employee)
   end
 
   defp get_employee_by_reg(reg) when is_binary(reg) do
-    case Repo.get_by(%Employee{} = employee, reg: reg) do
+    case Repo.get_by(%Employee{}, reg: reg) do
       nil ->
         dummy_checkpw()
         {:error, "Login error."}
-      employee ->
-        {:ok, employee}
+      %Employee{} ->
+        {:ok, %Employee{}}
     end
   end
 

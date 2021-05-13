@@ -1,4 +1,4 @@
-defmodule MyApi.AuthErrorHandler do
+defmodule Server.AuthErrorHandler do
   import Plug.Conn
   
   def auth_error(conn, {type, _reason}, _opts) do

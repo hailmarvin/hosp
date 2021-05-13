@@ -19,7 +19,7 @@ defmodule ServerWeb.Router do
     post "/staff/sign_in", EmployeeController, :sign_in
   end
 
-  scope "/api/v1", MyApiWeb do
+  scope "/api/v1", ServerWeb do
     pipe_through [:api, :jwt_authenticated]
 
     get "/my_user", UserController, :show

@@ -7,7 +7,7 @@ defmodule Server.Repo.Migrations.CreatePatients do
       add :surname, :string
       add :phone, :integer
       add :reg, :integer
-      add :dob, :date
+      add :dob, :string
       add :email, :string
       add :password_hash, :string
 

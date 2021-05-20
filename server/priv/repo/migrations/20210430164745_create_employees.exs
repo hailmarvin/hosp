@@ -7,7 +7,7 @@ defmodule Server.Repo.Migrations.CreateEmployees do
       add :surname, :string
       add :phone, :integer
       add :reg, :integer
-      add :dob, :date
+      add :dob, :string
       add :department, :string
       add :position, :string
       add :email, :string

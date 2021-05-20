@@ -21,8 +21,6 @@ defmodule ServerWeb.Router do
 
   scope "/api/v1", ServerWeb do
     pipe_through [:api, :jwt_authenticated]
-
-    get "/my_user", UserController, :show
     
     resources "/patients", PatientController, only: [:show, :update]
     resources "/staff", EmployeeController, only: [:show, :update]

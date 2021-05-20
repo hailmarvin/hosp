@@ -5,7 +5,7 @@ defmodule Server.Accounts.Employee do
 
   schema "employees" do
     field :department, :string
-    field :dob, :date
+    field :dob, :string
     field :email, :string
     field :isadmin, :boolean, default: false
     field :name, :string

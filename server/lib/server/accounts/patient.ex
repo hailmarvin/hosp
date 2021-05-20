@@ -4,7 +4,7 @@ defmodule Server.Accounts.Patient do
   import Comeonin.Bcrypt, only: [hashpwsalt: 1]
 
   schema "patients" do
-    field :dob, :date
+    field :dob, :string
     field :email, :string
     field :name, :string
     field :password_hash, :string

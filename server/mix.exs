@@ -46,7 +46,7 @@ defmodule Server.MixProject do
       {:cowboy, "< 2.8.0", override: true},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:guardian, "~> 1.0"}
+      {:guardian, "~> 2.0"}
     ]
   end
 

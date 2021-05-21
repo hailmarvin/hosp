@@ -13,7 +13,7 @@ defmodule ServerWeb.PatientController do
 
   def create(conn, %{"patient" => patient_params}) do
     with {:ok, %Patient{} = patient} <- Accounts.create_patient(patient_params),
-    {:ok, token, _claims} <- Guardian.encode_and_sign(patient) do
+    {:ok, token, _claims} <- Server.Guardian.encode_and_sign(patient) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.patient_path(conn, :show, patient))

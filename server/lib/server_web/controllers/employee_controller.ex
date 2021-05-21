@@ -13,7 +13,7 @@ defmodule ServerWeb.EmployeeController do
 
   def create(conn, %{"employee" => employee_params}) do
     with {:ok, %Employee{} = employee} <- Accounts.create_employee(employee_params),
-    {:ok, token, _claims} <- Guardian.encode_and_sign(employee) do
+    {:ok, token, _claims} <- Server.Guardian.encode_and_sign(employee) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.patient_path(conn, :show, employee))

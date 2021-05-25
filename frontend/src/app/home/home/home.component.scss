@@ -7,3 +7,24 @@
     background-position: 0% 65%;
     background-size: cover;
 }
+
+.landing-quote {
+    font-style: italic;
+    position: relative;
+    font-size: x-large;             
+    top: 50%;
+    float: right;                 
+    transform: translate(0, -50%);
+    color: white;
+    vertical-align: middle;
+    padding: 20px;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+}
+
+@media only screen and (max-width: 600px) {
+    .landing-quote {
+      font-size: medium;
+      top: 80%;
+      float: none;
+    }
+}

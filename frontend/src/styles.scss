@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $frontend-primary: mat-palette($mat-grey, 900);
-$frontend-accent: mat-palette($mat-cyan, 600, A100, A400);
+$frontend-accent: mat-palette($mat-teal, 400, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $frontend-warn: mat-palette($mat-cyan, A100);
@@ -28,5 +28,5 @@ $frontend-theme: mat-dark-theme($frontend-primary, $frontend-accent, $frontend-w
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0; padding: 0; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #181818; color: #eeeeee; }

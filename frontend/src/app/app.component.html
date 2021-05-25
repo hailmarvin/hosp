@@ -1,6 +1,22 @@
 <div class="header">
 <mat-toolbar>
-  <span>HOSP</span>
+  <span [routerLink]="['/home']" class="header-brand">HOSP</span>
+  <span class="example-spacer"></span>
+  <span class="example-icon">
+    Home
+  </span>
+  <span class="example-icon">
+    Department
+  </span>
+  <span class="example-icon">
+    About Us
+  </span>
+  <span class="example-icon">
+    Account
+  </span>
+  <button mat-icon-button class="menu-icon">
+    <mat-icon>menu</mat-icon>
+  </button>
 </mat-toolbar>
 </div>
 <router-outlet></router-outlet>

@@ -5,16 +5,16 @@
     <br>
     <br>
     <br>
-    <h1 class="registration-header">Patient Login Form</h1>
+    <h1 class="registration-header">Login Form</h1>
     <br>
     <br>
     <br>
     <form [formGroup]="loginForm">
         <br>
-      
+
         <label class="long">
-            Email:
-            <input type="email" formControlName="email">
+            Reg:
+            <input type="string" formControlName="reg">
         </label>
 
         <br>
@@ -23,6 +23,8 @@
             Password:
             <input type="password" formControlName="password">
         </label>
+
+        <br>
 
         <div class="button-container">
             <button mat-raised-button class="submit" color="accent">Login</button>

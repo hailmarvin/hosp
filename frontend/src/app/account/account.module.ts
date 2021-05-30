@@ -5,9 +5,10 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
+import { AppointmentComponent } from './appointment/appointment.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, SignupComponent, AppointmentComponent],
   imports: [
     CommonModule,
     MaterialModule,

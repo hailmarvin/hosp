@@ -24,6 +24,7 @@ defmodule ServerWeb.Router do
     
     resources "/patients", PatientController, only: [:show, :update]
     resources "/staff", EmployeeController, only: [:show, :update]
+    resources "/appointments", AppointmentController
   end
 
   # Enables LiveDashboard only for development

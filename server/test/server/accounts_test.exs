@@ -150,4 +150,65 @@ defmodule Server.AccountsTest do
       assert %Ecto.Changeset{} = Accounts.change_employee(employee)
     end
   end
+
+  describe "appointments" do
+    alias Server.Accounts.Appointment
+
+    @valid_attrs %{date: "some date", title: "some title"}
+    @update_attrs %{date: "some updated date", title: "some updated title"}
+    @invalid_attrs %{date: nil, title: nil}
+
+    def appointment_fixture(attrs \\ %{}) do
+      {:ok, appointment} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> Accounts.create_appointment()
+
+      appointment
+    end
+
+    test "list_appointments/0 returns all appointments" do
+      appointment = appointment_fixture()
+      assert Accounts.list_appointments() == [appointment]
+    end
+
+    test "get_appointment!/1 returns the appointment with given id" do
+      appointment = appointment_fixture()
+      assert Accounts.get_appointment!(appointment.id) == appointment
+    end
+
+    test "create_appointment/1 with valid data creates a appointment" do
+      assert {:ok, %Appointment{} = appointment} = Accounts.create_appointment(@valid_attrs)
+      assert appointment.date == "some date"
+      assert appointment.title == "some title"
+    end
+
+    test "create_appointment/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_appointment(@invalid_attrs)
+    end
+
+    test "update_appointment/2 with valid data updates the appointment" do
+      appointment = appointment_fixture()
+      assert {:ok, %Appointment{} = appointment} = Accounts.update_appointment(appointment, @update_attrs)
+      assert appointment.date == "some updated date"
+      assert appointment.title == "some updated title"
+    end
+
+    test "update_appointment/2 with invalid data returns error changeset" do
+      appointment = appointment_fixture()
+      assert {:error, %Ecto.Changeset{}} = Accounts.update_appointment(appointment, @invalid_attrs)
+      assert appointment == Accounts.get_appointment!(appointment.id)
+    end
+
+    test "delete_appointment/1 deletes the appointment" do
+      appointment = appointment_fixture()
+      assert {:ok, %Appointment{}} = Accounts.delete_appointment(appointment)
+      assert_raise Ecto.NoResultsError, fn -> Accounts.get_appointment!(appointment.id) end
+    end
+
+    test "change_appointment/1 returns a appointment changeset" do
+      appointment = appointment_fixture()
+      assert %Ecto.Changeset{} = Accounts.change_appointment(appointment)
+    end
+  end
 end

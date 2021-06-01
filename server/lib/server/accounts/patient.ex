@@ -11,6 +11,7 @@ defmodule Server.Accounts.Patient do
     field :phone, :integer
     field :reg, :integer
     field :surname, :string
+    has_many :appointment, Server.Accounts.Appointment
     # Virtual fields:
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true

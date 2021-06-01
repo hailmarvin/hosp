@@ -4,9 +4,10 @@ defmodule Server.Repo.Migrations.CreateAppointments do
   def change do
     create table(:appointments) do
       add :title, :string
-      add :dob, :date
-      add :active, :boolean
-      add :employee_id, references(:employees)
+      add :date, :string
+
+      timestamps()
     end
+
   end
 end
